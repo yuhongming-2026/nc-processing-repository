@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南宁市涉水环境企业污染源执法监测数据分析报告</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .header {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            border-radius: 10px 10px 0 0 !important;
+        }
+        .table {
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+        }
+        .table thead {
+            background-color: #007bff;
+            color: white;
+        }
+        .stats-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .stats-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .stats-label {
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-top: 20px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="header text-center">
+            <h1>南宁市涉水环境企业污染源执法监测数据分析报告</h1>
+            <p class="mt-3">生成时间: 2026/4/6 18:56:00</p>
+        </div>
+        
+        <!-- 数据概览 -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-value">2366 行 × 23 列</div>
+                    <div class="stats-label">数据规模</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-value">0</div>
+                    <div class="stats-label">企业数量</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-value">0</div>
+                    <div class="stats-label">监测项目</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-value">0</div>
+                    <div class="stats-label">监测日期</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 企业监测次数排名 -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">企业监测次数排名</h2>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="companyRankingChart"></canvas>
+                </div>
+                <table class="table table-striped table-hover mt-4">
+                    <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>企业名称</th>
+                            <th>监测次数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>1</td>
+                            <td>广西壮族自治区妇幼保健院厢竹院区</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>2</td>
+                            <td>南宁市佳达纸业有限责任公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>3</td>
+                            <td>广西宏瑞泰纸浆有限责任公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>4</td>
+                            <td>广西永凯糖纸有限责任公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>5</td>
+                            <td>横县六景华鸿污水处理有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>6</td>
+                            <td>横县万力隆皮业有限责任公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>7</td>
+                            <td>南宁赢创美诗药业有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>8</td>
+                            <td>百威（南宁）啤酒有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>9</td>
+                            <td>广西华鸿明阳污水处理有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>10</td>
+                            <td>广西华兴食品集团有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>11</td>
+                            <td>广西金水建设开发有限公司埌东净化补水厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>12</td>
+                            <td>广西绿城水务股份有限公司江南污水处理厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>13</td>
+                            <td>广西马山县远洋工贸有限责任公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>14</td>
+                            <td>广西盛虎金属制品有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>15</td>
+                            <td>广西珠江啤酒有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>16</td>
+                            <td>南宁青岛啤酒有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>17</td>
+                            <td>南宁市武鸣区天鸣纸厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>18</td>
+                            <td>南宁市圣达净水材料有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>19</td>
+                            <td>南宁双汇食品有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>20</td>
+                            <td>南宁统一企业有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>21</td>
+                            <td>南宁沱江纸业有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>22</td>
+                            <td>南宁五丰联合食品有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>23</td>
+                            <td>中节能（广西）清洁技术发展有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>24</td>
+                            <td>广西骨伤医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>25</td>
+                            <td>广西和发强纸业有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>26</td>
+                            <td>广西民族医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>27</td>
+                            <td>广西医科大学第二附属医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>28</td>
+                            <td>广西医科大学第一附属医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>29</td>
+                            <td>广西医科大学附属口腔医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>30</td>
+                            <td>广西中医药大学附属瑞康医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>31</td>
+                            <td>广西壮族自治区职业病防治研究院（广西壮族自治区工人医院）</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>32</td>
+                            <td>广西壮族自治区江滨医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>33</td>
+                            <td>广西壮族自治区人民医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>34</td>
+                            <td>广西壮族自治区人民医院邕武医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>35</td>
+                            <td>南宁市第二人民医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>36</td>
+                            <td>南宁市第四人民医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>37</td>
+                            <td>南宁市第一人民医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>38</td>
+                            <td>南宁市妇幼儿童保健院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>39</td>
+                            <td>上林南华糖业有限责任公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>40</td>
+                            <td>南宁糖业股份有限公司明阳糖厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>41</td>
+                            <td>上林县博世科威林环境服务有限公司象山工业园区污水处理厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>42</td>
+                            <td>宾阳县通用造纸厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>43</td>
+                            <td>广西海盈酒精有限责任公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>44</td>
+                            <td>广西隆安南华糖业有限责任公司那桐糖厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>45</td>
+                            <td>广西隆安南华糖业有限责任公司南圩糖厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>46</td>
+                            <td>广西农垦糖业集团金光制糖有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>47</td>
+                            <td>广西申龙汽车制造有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>48</td>
+                            <td>广西糖业集团廖平制糖有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>49</td>
+                            <td>隆安华侨管理区富侨建设投资有限公司那桐镇污水处理厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>50</td>
+                            <td>南宁良庆东糖糖业有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>51</td>
+                            <td>广西汇华食品有限责任公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>52</td>
+                            <td>横县东糖石塘糖业有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>53</td>
+                            <td>横县东糖糖业有限公司纸业分公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>54</td>
+                            <td>广西农垦糖业集团良圻制糖有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>55</td>
+                            <td>南宁糖业股份有限公司东江糖厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>56</td>
+                            <td>南宁糖业股份有限公司香山糖厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>57</td>
+                            <td>南宁糖业宾阳大桥制糖有限责任公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>58</td>
+                            <td>南宁糖业股份有限公司伶俐糖厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>59</td>
+                            <td>广西华都环境投资集团有限公司武鸣县城镇生活垃圾处理工程</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>60</td>
+                            <td>广西南宁诚格五金制品有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>61</td>
+                            <td>广西亚欧瓷业有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>62</td>
+                            <td>南宁市盛都城市开发有限责任公司金陵镇污水处理厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>63</td>
+                            <td>广西壮族自治区妇幼保健院厢竹院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>64</td>
+                            <td>广西永凯大桥纸业有限责任公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>65</td>
+                            <td>广西华都环境投资集团有限公司上林分公司上林县生活垃圾卫生填埋场</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>66</td>
+                            <td>广西糖业集团良圻制糖有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>67</td>
+                            <td>广西金水建设开发有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>68</td>
+                            <td>广西华都环境投资集团有限公司马山县分公司马山县生活垃圾无害化处理工程</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>69</td>
+                            <td>隆安县华都隆盛环保科技有限公司隆安县生活垃圾卫生填埋场</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>70</td>
+                            <td>横县华都恒盛环保科技有限公司横县县城第二生活垃圾卫生填埋场</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>71</td>
+                            <td>隆安华侨管理区富侨建设投资有限公司隆安县那桐镇污水处理厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>72</td>
+                            <td>南宁市盛都投资集团有限责任公司金陵镇污水处理厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>73</td>
+                            <td>广西凤凰银业有限责任公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>74</td>
+                            <td>广西横县隆业茧丝绸有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>75</td>
+                            <td>广西新又鲜畜禽有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>76</td>
+                            <td>南宁太阳纸业有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>77</td>
+                            <td>广西华景宇环保科技有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>78</td>
+                            <td>广西绿城水务股份有限公司上林县污水处理分公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>79</td>
+                            <td>上林县食品公司明亮屠宰厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>80</td>
+                            <td>广西绿城水务股份有限公司茅桥水质净化厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>81</td>
+                            <td>广西绿城水务股份有限公司武鸣污水处理分公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>82</td>
+                            <td>南宁博湾水生态科技有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>83</td>
+                            <td>宾阳县茧丝工贸有限责任公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>84</td>
+                            <td>光大水务（南宁）有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>85</td>
+                            <td>广西宝瑞坦广明制药有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>86</td>
+                            <td>广西绿城水务股份有限公司横州市污水处理分公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>87</td>
+                            <td>广西绿城水务股份有限公司江南水质净化厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>88</td>
+                            <td>广西绿城水务股份有限公司那平江污水处理厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>89</td>
+                            <td>广西南宁百会药业集团有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>90</td>
+                            <td>广西南宁北投心圩江环境治理有限公司中盟水质净化厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>91</td>
+                            <td>广西普乐益生物科技有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>92</td>
+                            <td>广西石埠乳业有限责任公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>93</td>
+                            <td>广西邕之泰实业有限公司</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>94</td>
+                            <td>南宁北排水环境发展有限公司那考河再生水厂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>95</td>
+                            <td>南宁市江南区人民医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 主要监测项目分布 -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">主要监测项目分布</h2>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="monitoringItemsChart"></canvas>
+                </div>
+                <table class="table table-striped table-hover mt-4">
+                    <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>监测项目</th>
+                            <th>监测次数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>1</td>
+                            <td>石油类</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>2</td>
+                            <td>粪大肠菌群</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>3</td>
+                            <td>肠道致病菌</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>4</td>
+                            <td>氨氮（NH3-N）</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>5</td>
+                            <td>五日生化需氧量</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>6</td>
+                            <td>动植物油</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>7</td>
+                            <td>悬浮物</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>8</td>
+                            <td>总铅</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>9</td>
+                            <td>六价铬</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>10</td>
+                            <td>总β放射性</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>11</td>
+                            <td>总铬</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>12</td>
+                            <td>色度</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>13</td>
+                            <td>化学需氧量</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>14</td>
+                            <td>氰化物（总氰化合物）</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>15</td>
+                            <td>总砷</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>16</td>
+                            <td>总余氯</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>17</td>
+                            <td>总α放射性</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>18</td>
+                            <td>总汞</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>19</td>
+                            <td>pH值</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>20</td>
+                            <td>挥发酚</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>21</td>
+                            <td>总镉</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>22</td>
+                            <td>总银</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>23</td>
+                            <td>阴离子表面活性剂（LAS）</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>24</td>
+                            <td>总磷（以P计）</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>25</td>
+                            <td>总氮（以N计）</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>26</td>
+                            <td>粪大肠菌群数</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>27</td>
+                            <td>阴离子表面活性剂</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>28</td>
+                            <td>总锌</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>29</td>
+                            <td>烷基汞</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>30</td>
+                            <td>硝基苯类</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>31</td>
+                            <td>硫化物</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>32</td>
+                            <td>总铜</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>33</td>
+                            <td>总镍</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>34</td>
+                            <td>总有机碳</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>35</td>
+                            <td>二氯甲烷</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>36</td>
+                            <td>苯胺类</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>37</td>
+                            <td>大肠菌群数</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>38</td>
+                            <td>敌敌畏</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>39</td>
+                            <td>异丙苯</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>40</td>
+                            <td>甲基对硫磷</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>41</td>
+                            <td>甲苯</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>42</td>
+                            <td>邻-二甲苯</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>43</td>
+                            <td>对硫磷</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>44</td>
+                            <td>乐果</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>45</td>
+                            <td>对-二甲苯</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>46</td>
+                            <td>苯</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>47</td>
+                            <td>间-二甲苯</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>48</td>
+                            <td>马拉硫磷</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>49</td>
+                            <td>苯乙烯</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>50</td>
+                            <td>乙苯</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>51</td>
+                            <td>总氰化物</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>52</td>
+                            <td>磷酸盐（以P计）</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>53</td>
+                            <td>余氯</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>54</td>
+                            <td>浊度</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>55</td>
+                            <td>氨氮</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>56</td>
+                            <td>pH</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>57</td>
+                            <td>氟化物</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>58</td>
+                            <td>肠道病毒</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>59</td>
+                            <td>结核杆菌</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>60</td>
+                            <td>乙基汞</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>61</td>
+                            <td>甲基汞</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>62</td>
+                            <td>总氯</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>63</td>
+                            <td>粪大肠菌群数/（MPN/L）</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>64</td>
+                            <td>流量</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>65</td>
+                            <td>总锰</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>66</td>
+                            <td>五日生化需氧量（BOD5）</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>67</td>
+                            <td>大肠菌群</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>68</td>
+                            <td>急性毒性（HgCl2毒性当量）</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>69</td>
+                            <td>总氮</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>70</td>
+                            <td>氨氮（以N计）</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>71</td>
+                            <td>总磷</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>72</td>
+                            <td>总大肠菌群</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>73</td>
+                            <td>总铝</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>74</td>
+                            <td>总铁</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 排放浓度统计 -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">排放浓度统计</h2>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="emissionChart"></canvas>
+                </div>
+                <table class="table table-striped table-hover mt-4">
+                    <thead>
+                        <tr>
+                            <th>监测项目</th>
+                            <th>平均浓度</th>
+                            <th>最大浓度</th>
+                            <th>最小浓度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>石油类</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>氨氮（NH3-N）</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>五日生化需氧量</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>动植物油</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>悬浮物</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总铅</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>六价铬</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总β放射性</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总铬</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>色度</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>化学需氧量</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>氰化物（总氰化合物）</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总砷</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总余氯</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总α放射性</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总汞</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>pH值</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>挥发酚</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总镉</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总银</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>阴离子表面活性剂（LAS）</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总磷（以P计）</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总氮（以N计）</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>粪大肠菌群数</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>阴离子表面活性剂</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总锌</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>烷基汞</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>硝基苯类</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>硫化物</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总铜</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总镍</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总有机碳</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>二氯甲烷</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>苯胺类</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>大肠菌群数</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>敌敌畏</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>异丙苯</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>甲苯</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>邻-二甲苯</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>对-二甲苯</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>苯</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>间-二甲苯</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>苯乙烯</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>乙苯</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总氰化物</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>磷酸盐（以P计）</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>余氯</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>浊度</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>粪大肠菌群</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>氨氮</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>pH</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>氟化物</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>乙基汞</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>甲基汞</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总氯</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>甲基对硫磷</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>对硫磷</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>乐果</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>马拉硫磷</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>粪大肠菌群数/（MPN/L）</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>流量</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总锰</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>五日生化需氧量（BOD5）</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>大肠菌群</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>急性毒性（HgCl2毒性当量）</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总氮</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>氨氮（以N计）</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总磷</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总大肠菌群</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总铝</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>总铁</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 行业分布分析 -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">行业分布分析</h2>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="industryChart"></canvas>
+                </div>
+                <table class="table table-striped table-hover mt-4">
+                    <thead>
+                        <tr>
+                            <th>行业类别</th>
+                            <th>企业数量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>妇幼保健院（所、站）</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>机制纸及纸板制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>木竹浆制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>非木竹浆制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>污水处理及其再生利用</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>皮革鞣制加工</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>化学药品原料药制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>啤酒制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>禽类屠宰</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>酒精制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>金属结构制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>造纸和纸制品业</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>环境污染处理专用药剂材料制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>屠宰及肉类加工</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>茶饮料及其他饮料制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>牲畜屠宰</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>危险废物治理</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>专科医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>综合医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>中西医结合医院</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>专科疾病防治院（所、站)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>制糖业</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>新能源车整车制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>水污染治理</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>环境卫生管理</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>金属表面处理及热处理加工</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>建筑陶瓷制品制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>银矿采选</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>缫丝加工</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>中成药生产</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>化学药品制剂制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>其他调味品、发酵制品制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>液体乳制造</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 受纳水体分析 -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">受纳水体分析</h2>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="waterBodiesChart"></canvas>
+                </div>
+                <table class="table table-striped table-hover mt-4">
+                    <thead>
+                        <tr>
+                            <th>受纳水体</th>
+                            <th>企业数量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>null</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>清水河</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>西云江</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>邕江</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>红水河</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>污水站</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>武鸣河</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>沱江</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>缚龙渠</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>沙江</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>右江</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>/</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>郁江</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>清水河之八岭河支流</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>城镇下水道</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>市政管网</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>竹排江</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td></td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 执行标准分析 -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">执行标准分析</h2>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="standardsChart"></canvas>
+                </div>
+                <table class="table table-striped table-hover mt-4">
+                    <thead>
+                        <tr>
+                            <th>执行标准名称</th>
+                            <th>企业数量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>医疗机构水污染物排放标准(GB18466-2005)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>污水排入城镇下水道水质标准(GB/T31962-2015)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>制浆造纸工业水污染物排放标准(GB3544-2008)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>城镇污水处理厂污染物排放标准[国标](GB18918-2002)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>化学合成类制药工业水污染物排放标准(GB21904-2008)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>城市污水再生利用 农田灌溉用水水质(GB 20922-2007)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>城市污水再生利用景观环境用水水质[国标](GB/T18921-2002)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>肉类加工工业水污染物排放标准(GB13457-92)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>发酵酒精和白酒工业水污染物排放标准(GB27631-2011)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>电镀污染物排放标准(GB21900-2008)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>啤酒工业污染物排放标准(GB19821-2005)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>污水综合排放标准(GB8978-1996)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>地下水质量标准(GB/T 14848-2017)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>污水综合排放标准(DB31/199-2018)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>制糖工业水污染物排放标准(GB21909-2008)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>甘蔗制糖工业水污染物排放标准(DB45893-2013)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>城市污水再生利用景观环境用水水质(GB/T18921-2019)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>生活垃圾填埋场污染控制标准(GB16889-2008)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>null</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>城镇污水处置污泥处置 单独焚烧用泥质(GB/T 24602-2009)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>城市污水再生利用 工业用水水质(GB/T19923-2005)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>城市污水再生利用城市杂用水水质(GB/T 18920—2020)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>制革及毛皮加工工业水污染物排放标准(GB30486-2013)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>缫丝工业水污染物排放标准(GB28936-2012)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>酵母工业水污染物排放标准(GB25462-2010)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>城市污水再生利用 城市杂用水城市污水再生利用 城市杂用水(GB/T18920-2002)</td>
+                            <td>undefined</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 分析总结 -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">分析总结</h2>
+            </div>
+            <div class="card-body">
+                <p class="lead">本次分析共涉及 0 家企业的 2366 行 × 23 列 条监测数据，涵盖了 0 个监测项目。</p>
+                <p>从分析结果来看，医疗机构是监测次数最多的行业，主要监测项目包括化学需氧量、氨氮、总磷等指标。</p>
+                <p>邕江是主要的受纳水体，有 0 家企业的废水排入其中。</p>
+                <p>执行标准方面，医疗机构主要采用 GB18466-2005 标准，其他行业则根据各自特点采用不同的排放标准。</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2026 南宁市环境监测数据分析系统</p>
+            <p>报告生成时间: 2026/4/6 18:56:00</p>
+        </div>
+    </div>
+    
+    <script>
+        // 企业监测次数排名图表
+        const companyRankingCtx = document.getElementById('companyRankingChart').getContext('2d');
+        new Chart(companyRankingCtx, {
+            type: 'bar',
+            data: {
+                labels: ["广西壮族自治区妇幼保健院厢竹院区", "南宁市佳达纸业有限责任公司", "广西宏瑞泰纸浆有限责任公司", "广西永凯糖纸有限责任公司", "横县六景华鸿污水处理有限公司", "横县万力隆皮业有限责任公司", "南宁赢创美诗药业有限公司", "百威（南宁）啤酒有限公司", "广西华鸿明阳污水处理有限公司", "广西华兴食品集团有限公司", "广西金水建设开发有限公司埌东净化补水厂", "广西绿城水务股份有限公司江南污水处理厂", "广西马山县远洋工贸有限责任公司", "广西盛虎金属制品有限公司", "广西珠江啤酒有限公司", "南宁青岛啤酒有限公司", "南宁市武鸣区天鸣纸厂", "南宁市圣达净水材料有限公司", "南宁双汇食品有限公司", "南宁统一企业有限公司", "南宁沱江纸业有限公司", "南宁五丰联合食品有限公司", "中节能（广西）清洁技术发展有限公司", "广西骨伤医院", "广西和发强纸业有限公司", "广西民族医院", "广西医科大学第二附属医院", "广西医科大学第一附属医院", "广西医科大学附属口腔医院", "广西中医药大学附属瑞康医院", "广西壮族自治区职业病防治研究院（广西壮族自治区工人医院）", "广西壮族自治区江滨医院", "广西壮族自治区人民医院", "广西壮族自治区人民医院邕武医院", "南宁市第二人民医院", "南宁市第四人民医院", "南宁市第一人民医院", "南宁市妇幼儿童保健院", "上林南华糖业有限责任公司", "南宁糖业股份有限公司明阳糖厂", "上林县博世科威林环境服务有限公司象山工业园区污水处理厂", "宾阳县通用造纸厂", "广西海盈酒精有限责任公司", "广西隆安南华糖业有限责任公司那桐糖厂", "广西隆安南华糖业有限责任公司南圩糖厂", "广西农垦糖业集团金光制糖有限公司", "广西申龙汽车制造有限公司", "广西糖业集团廖平制糖有限公司", "隆安华侨管理区富侨建设投资有限公司那桐镇污水处理厂", "南宁良庆东糖糖业有限公司", "广西汇华食品有限责任公司", "横县东糖石塘糖业有限公司", "横县东糖糖业有限公司纸业分公司", "广西农垦糖业集团良圻制糖有限公司", "南宁糖业股份有限公司东江糖厂", "南宁糖业股份有限公司香山糖厂", "南宁糖业宾阳大桥制糖有限责任公司", "南宁糖业股份有限公司伶俐糖厂", "广西华都环境投资集团有限公司武鸣县城镇生活垃圾处理工程", "广西南宁诚格五金制品有限公司", "广西亚欧瓷业有限公司", "南宁市盛都城市开发有限责任公司金陵镇污水处理厂", "广西壮族自治区妇幼保健院厢竹院", "广西永凯大桥纸业有限责任公司", "广西华都环境投资集团有限公司上林分公司上林县生活垃圾卫生填埋场", "广西糖业集团良圻制糖有限公司", "广西金水建设开发有限公司", "广西华都环境投资集团有限公司马山县分公司马山县生活垃圾无害化处理工程", "隆安县华都隆盛环保科技有限公司隆安县生活垃圾卫生填埋场", "横县华都恒盛环保科技有限公司横县县城第二生活垃圾卫生填埋场", "隆安华侨管理区富侨建设投资有限公司隆安县那桐镇污水处理厂", "南宁市盛都投资集团有限责任公司金陵镇污水处理厂", "广西凤凰银业有限责任公司", "广西横县隆业茧丝绸有限公司", "广西新又鲜畜禽有限公司", "南宁太阳纸业有限公司", "广西华景宇环保科技有限公司", "广西绿城水务股份有限公司上林县污水处理分公司", "上林县食品公司明亮屠宰厂", "广西绿城水务股份有限公司茅桥水质净化厂", "广西绿城水务股份有限公司武鸣污水处理分公司", "南宁博湾水生态科技有限公司", "宾阳县茧丝工贸有限责任公司", "光大水务（南宁）有限公司", "广西宝瑞坦广明制药有限公司", "广西绿城水务股份有限公司横州市污水处理分公司", "广西绿城水务股份有限公司江南水质净化厂", "广西绿城水务股份有限公司那平江污水处理厂", "广西南宁百会药业集团有限公司", "广西南宁北投心圩江环境治理有限公司中盟水质净化厂", "广西普乐益生物科技有限公司", "广西石埠乳业有限责任公司", "广西邕之泰实业有限公司", "南宁北排水环境发展有限公司那考河再生水厂", "南宁市江南区人民医院"],
+                datasets: [{
+                    label: '监测次数',
+                    data: [, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ],
+                    backgroundColor: 'rgba(0, 123, 255, 0.6)',
+                    borderColor: 'rgba(0, 123, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        
+        // 监测项目分布图表
+        const monitoringItemsCtx = document.getElementById('monitoringItemsChart').getContext('2d');
+        new Chart(monitoringItemsCtx, {
+            type: 'pie',
+            data: {
+                labels: ["石油类", "粪大肠菌群", "肠道致病菌", "氨氮（NH3-N）", "五日生化需氧量", "动植物油", "悬浮物", "总铅", "六价铬", "总β放射性", "总铬", "色度", "化学需氧量", "氰化物（总氰化合物）", "总砷", "总余氯", "总α放射性", "总汞", "pH值", "挥发酚", "总镉", "总银", "阴离子表面活性剂（LAS）", "总磷（以P计）", "总氮（以N计）", "粪大肠菌群数", "阴离子表面活性剂", "总锌", "烷基汞", "硝基苯类", "硫化物", "总铜", "总镍", "总有机碳", "二氯甲烷", "苯胺类", "大肠菌群数", "敌敌畏", "异丙苯", "甲基对硫磷", "甲苯", "邻-二甲苯", "对硫磷", "乐果", "对-二甲苯", "苯", "间-二甲苯", "马拉硫磷", "苯乙烯", "乙苯", "总氰化物", "磷酸盐（以P计）", "余氯", "浊度", "氨氮", "pH", "氟化物", "肠道病毒", "结核杆菌", "乙基汞", "甲基汞", "总氯", "粪大肠菌群数/（MPN/L）", "流量", "总锰", "五日生化需氧量（BOD5）", "大肠菌群", "急性毒性（HgCl2毒性当量）", "总氮", "氨氮（以N计）", "总磷", "总大肠菌群", "总铝", "总铁"],
+                datasets: [{
+                    data: [, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(255, 159, 64, 0.6)',
+                        'rgba(199, 199, 199, 0.6)',
+                        'rgba(83, 102, 255, 0.6)',
+                        'rgba(255, 99, 255, 0.6)',
+                        'rgba(99, 255, 132, 0.6)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+        
+        // 排放浓度统计图表
+        const emissionCtx = document.getElementById('emissionChart').getContext('2d');
+        new Chart(emissionCtx, {
+            type: 'bar',
+            data: {
+                labels: ["石油类", "氨氮（NH3-N）", "五日生化需氧量", "动植物油", "悬浮物", "总铅", "六价铬", "总β放射性", "总铬", "色度", "化学需氧量", "氰化物（总氰化合物）", "总砷", "总余氯", "总α放射性", "总汞", "pH值", "挥发酚", "总镉", "总银", "阴离子表面活性剂（LAS）", "总磷（以P计）", "总氮（以N计）", "粪大肠菌群数", "阴离子表面活性剂", "总锌", "烷基汞", "硝基苯类", "硫化物", "总铜", "总镍", "总有机碳", "二氯甲烷", "苯胺类", "大肠菌群数", "敌敌畏", "异丙苯", "甲苯", "邻-二甲苯", "对-二甲苯", "苯", "间-二甲苯", "苯乙烯", "乙苯", "总氰化物", "磷酸盐（以P计）", "余氯", "浊度", "粪大肠菌群", "氨氮", "pH", "氟化物", "乙基汞", "甲基汞", "总氯", "甲基对硫磷", "对硫磷", "乐果", "马拉硫磷", "粪大肠菌群数/（MPN/L）", "流量", "总锰", "五日生化需氧量（BOD5）", "大肠菌群", "急性毒性（HgCl2毒性当量）", "总氮", "氨氮（以N计）", "总磷", "总大肠菌群", "总铝", "总铁"],
+                datasets: [
+                    {
+                        label: '平均浓度',
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: 'rgba(0, 123, 255, 0.6)'
+                    },
+                    {
+                        label: '最大浓度',
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)'
+                    },
+                    {
+                        label: '最小浓度',
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: 'rgba(75, 192, 192, 0.6)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        
+        // 行业分布图表
+        const industryCtx = document.getElementById('industryChart').getContext('2d');
+        new Chart(industryCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ["妇幼保健院（所、站）", "机制纸及纸板制造", "木竹浆制造", "非木竹浆制造", "污水处理及其再生利用", "皮革鞣制加工", "化学药品原料药制造", "啤酒制造", "禽类屠宰", "酒精制造", "金属结构制造", "造纸和纸制品业", "环境污染处理专用药剂材料制造", "屠宰及肉类加工", "茶饮料及其他饮料制造", "牲畜屠宰", "危险废物治理", "专科医院", "综合医院", "中西医结合医院", "专科疾病防治院（所、站)", "制糖业", "新能源车整车制造", "水污染治理", "环境卫生管理", "金属表面处理及热处理加工", "建筑陶瓷制品制造", "银矿采选", "缫丝加工", "中成药生产", "化学药品制剂制造", "其他调味品、发酵制品制造", "液体乳制造"],
+                datasets: [{
+                    data: [, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(255, 159, 64, 0.6)',
+                        'rgba(199, 199, 199, 0.6)',
+                        'rgba(83, 102, 255, 0.6)',
+                        'rgba(255, 99, 255, 0.6)',
+                        'rgba(99, 255, 132, 0.6)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+        
+        // 受纳水体图表
+        const waterBodiesCtx = document.getElementById('waterBodiesChart').getContext('2d');
+        new Chart(waterBodiesCtx, {
+            type: 'bar',
+            data: {
+                labels: ["null", "清水河", "西云江", "邕江", "红水河", "污水站", "武鸣河", "沱江", "缚龙渠", "沙江", "右江", "/", "郁江", "清水河之八岭河支流", "城镇下水道", "市政管网", "竹排江", ""],
+                datasets: [{
+                    label: '企业数量',
+                    data: [, , , , , , , , , , , , , , , , , ],
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        
+        // 执行标准图表
+        const standardsCtx = document.getElementById('standardsChart').getContext('2d');
+        new Chart(standardsCtx, {
+            type: 'bar',
+            data: {
+                labels: ["医疗机构水污染物排放标准(GB18466-2005)", "污水排入城镇下水道水质标准(GB/T31962-2015)", "制浆造纸工业水污染物排放标准(GB3544-2008)", "城镇污水处理厂污染物排放标准[国标](GB18918-2002)", "化学合成类制药工业水污染物排放标准(GB21904-2008)", "城市污水再生利用 农田灌溉用水水质(GB 20922-2007)", "城市污水再生利用景观环境用水水质[国标](GB/T18921-2002)", "肉类加工工业水污染物排放标准(GB13457-92)", "发酵酒精和白酒工业水污染物排放标准(GB27631-2011)", "电镀污染物排放标准(GB21900-2008)", "啤酒工业污染物排放标准(GB19821-2005)", "污水综合排放标准(GB8978-1996)", "地下水质量标准(GB/T 14848-2017)", "污水综合排放标准(DB31/199-2018)", "制糖工业水污染物排放标准(GB21909-2008)", "甘蔗制糖工业水污染物排放标准(DB45893-2013)", "城市污水再生利用景观环境用水水质(GB/T18921-2019)", "生活垃圾填埋场污染控制标准(GB16889-2008)", "null", "城镇污水处置污泥处置 单独焚烧用泥质(GB/T 24602-2009)", "城市污水再生利用 工业用水水质(GB/T19923-2005)", "城市污水再生利用城市杂用水水质(GB/T 18920—2020)", "制革及毛皮加工工业水污染物排放标准(GB30486-2013)", "缫丝工业水污染物排放标准(GB28936-2012)", "酵母工业水污染物排放标准(GB25462-2010)", "城市污水再生利用 城市杂用水城市污水再生利用 城市杂用水(GB/T18920-2002)"],
+                datasets: [{
+                    label: '企业数量',
+                    data: [, , , , , , , , , , , , , , , , , , , , , , , , , ],
+                    backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

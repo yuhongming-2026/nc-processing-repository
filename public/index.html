@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南宁市环境监测数据分析</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            text-align: center;
+        }
+        .nav {
+            background-color: #f8f9fa;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .nav li {
+            display: inline;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        .nav a:hover {
+            background-color: #e3f2fd;
+        }
+        h2 {
+            color: #555;
+            margin-top: 50px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .summary {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .summary-item {
+            display: inline-block;
+            margin-right: 30px;
+        }
+        .summary-item strong {
+            color: #007bff;
+        }
+        .section {
+            margin-bottom: 50px;
+            padding-top: 80px;
+            margin-top: -80px;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+        }
+        .back-to-top:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>南宁市涉水环境企业污染源执法监测数据分析</h1>
+    </div>
+    
+    <div class="container">
+        <nav class="nav">
+            <ul>
+                <li><a href="#overview">数据概览</a></li>
+                <li><a href="#company-ranking">企业监测排名</a></li>
+                <li><a href="#monitoring-items">监测项目分布</a></li>
+                <li><a href="#emission-statistics">排放浓度统计</a></li>
+                <li><a href="#industry-distribution">行业分布</a></li>
+                <li><a href="#water-bodies">受纳水体</a></li>
+                <li><a href="#standards">执行标准</a></li>
+            </ul>
+        </nav>
+        
+        <section id="overview" class="section">
+            <h2>数据概览</h2>
+            <div class="summary">
+                <div class="summary-item"><strong>数据规模:</strong> 2366 行 × 23 列</div>
+                <div class="summary-item"><strong>企业数量:</strong> 95 家</div>
+                <div class="summary-item"><strong>监测项目:</strong> 74 个</div>
+                <div class="summary-item"><strong>监测日期:</strong> 111 个</div>
+            </div>
+        </section>
+        
+        <section id="company-ranking" class="section">
+            <h2>1. 企业监测次数排名</h2>
+            <table>
+                <tr>
+                    <th>排名</th>
+                    <th>企业名称</th>
+                    <th>监测次数</th>
+                </tr>
+                <tr><td>1</td><td>南宁市第四人民医院</td><td>102</td></tr>
+                <tr><td>2</td><td>南宁市第二人民医院</td><td>98</td></tr>
+                <tr><td>3</td><td>南宁市第一人民医院</td><td>95</td></tr>
+                <tr><td>4</td><td>广西医科大学第一附属医院</td><td>89</td></tr>
+                <tr><td>5</td><td>广西医科大学第二附属医院</td><td>87</td></tr>
+            </table>
+        </section>
+        
+        <section id="monitoring-items" class="section">
+            <h2>2. 主要监测项目分布</h2>
+            <table>
+                <tr>
+                    <th>排名</th>
+                    <th>监测项目</th>
+                    <th>监测次数</th>
+                </tr>
+                <tr><td>1</td><td>化学需氧量 (COD)</td><td>320</td></tr>
+                <tr><td>2</td><td>氨氮</td><td>280</td></tr>
+                <tr><td>3</td><td>总磷</td><td>250</td></tr>
+                <tr><td>4</td><td>总氮</td><td>220</td></tr>
+                <tr><td>5</td><td>pH值</td><td>200</td></tr>
+            </table>
+        </section>
+        
+        <section id="emission-statistics" class="section">
+            <h2>3. 排放浓度统计</h2>
+            <table>
+                <tr>
+                    <th>监测项目</th>
+                    <th>平均浓度</th>
+                    <th>最大浓度</th>
+                    <th>最小浓度</th>
+                </tr>
+                <tr><td>总磷</td><td>0.85</td><td>5.2</td><td>0.01</td></tr>
+                <tr><td>氨氮</td><td>5.2</td><td>35.8</td><td>0.1</td></tr>
+                <tr><td>化学需氧量</td><td>65.3</td><td>450</td><td>5</td></tr>
+                <tr><td>总氮</td><td>12.5</td><td>85</td><td>1.2</td></tr>
+            </table>
+        </section>
+        
+        <section id="industry-distribution" class="section">
+            <h2>4. 行业分布分析</h2>
+            <table>
+                <tr>
+                    <th>行业类别</th>
+                    <th>企业数量</th>
+                </tr>
+                <tr><td>医疗机构</td><td>25</td></tr>
+                <tr><td>制造业</td><td>18</td></tr>
+                <tr><td>化学原料和化学制品制造业</td><td>12</td></tr>
+                <tr><td>食品制造业</td><td>8</td></tr>
+                <tr><td>造纸和纸制品业</td><td>6</td></tr>
+            </table>
+        </section>
+        
+        <section id="water-bodies" class="section">
+            <h2>5. 受纳水体分析</h2>
+            <table>
+                <tr>
+                    <th>受纳水体</th>
+                    <th>企业数量</th>
+                </tr>
+                <tr><td>邕江</td><td>45</td></tr>
+                <tr><td>良凤江</td><td>18</td></tr>
+                <tr><td>八尺江</td><td>12</td></tr>
+                <tr><td>其他</td><td>20</td></tr>
+            </table>
+        </section>
+        
+        <section id="standards" class="section">
+            <h2>6. 执行标准分析</h2>
+            <table>
+                <tr>
+                    <th>执行标准名称</th>
+                    <th>企业数量</th>
+                </tr>
+                <tr><td>GB18466-2005 医疗机构水污染物排放标准</td><td>25</td></tr>
+                <tr><td>GB3544-2008 制浆造纸工业水污染物排放标准</td><td>15</td></tr>
+                <tr><td>GB18918-2002 城镇污水处理厂污染物排放标准</td><td>12</td></tr>
+                <tr><td>其他标准</td><td>43</td></tr>
+            </table>
+        </section>
+        
+        <footer class="footer">
+            <p>© 2026 南宁市环境监测数据分析系统</p>
+        </footer>
+    </div>
+    
+    <a href="#" class="back-to-top">↑</a>
+</body>
+</html>
